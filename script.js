@@ -1,6 +1,8 @@
 console.log('JavaScript Carregado')
 
 function validaCPF(cpf) {
+    console.log(cpf.length)
+
     if (cpf.length != 11) {
         return false
     } else {
@@ -9,7 +11,7 @@ function validaCPF(cpf) {
         
         var soma = 0
         for (var i = 10; i > 1; i--) {
-            soma += numeros.charAt(10 - 1) * 1
+            soma += numeros.charAt(10 - 1) * i
         }
 
         var resultado = soma % 11 < 2 ?  0 : 11 - (soma % 11)
@@ -17,7 +19,7 @@ function validaCPF(cpf) {
         // Validação do Primeiro Digito
         if (resultado != digitos.charAt(0)) {
             return false
-    
+        }
 
         soma = 0
         numeros = cpf.substring(0, 10)
@@ -30,10 +32,10 @@ function validaCPF(cpf) {
 
         if (resultado != digitos.charAt(1)) {
             return false
-        } return true
+        } 
         
         } 
-    }
+    
 }
 
 function validacao() {
@@ -42,7 +44,7 @@ function validacao() {
     document.getElementById('success').style.display = 'none'
     document.getElementById('error').style.display = 'none'
 
-    var cpf = document.getElementById('cpf_digitado').nodeValue
+    var cpf = document.getElementById('cpf_digitado').value
 
     var resultadoValidacao = validaCPF(cpf)
 
